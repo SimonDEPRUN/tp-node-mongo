@@ -1,18 +1,19 @@
 import express from "express";
 import { connect } from "mongoose";
 import cors from "cors";
-import userRoutes from "./routes/userRoutes.js"
-import produitRoutes from "./routes/produitRoutes.js"
-import etudiantRoutes from "./routes/etudiantRoutes.js"
+import tgvRoutes from "./routes/tgvRoutes.js"
+import billetRoutes from "./routes/billetRoutes.js"
 
 const app = express();
 app.use(express.json());
 
-app.use("/users", userRoutes);
-app.use("/produits", produitRoutes);
-app.use("/etudiants", etudiantRoutes);
+app.use("/tgvs", tgvRoutes);
+app.use("/billets", billetRoutes);
+// app.use("/users", userRoutes);
+// app.use("/produits", produitRoutes);
+// app.use("/etudiants", etudiantRoutes);
 app.use(cors());
-connect("mongodb://127.0.0.1:27017/TP_2")
+connect("mongodb://127.0.0.1:27017/TP_3")
     .then(() => console.log("connecté à MongoDB"))
     .catch(err => console.error("Erreur MongoDB : ", err));
 
